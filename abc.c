@@ -15,7 +15,7 @@
 
 uint16_t pos_x,pos_y;
 uint16_t pix_x,pix_y;
->>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
+
 uint16_t jodo;
 
 int button_pos[4][2];
