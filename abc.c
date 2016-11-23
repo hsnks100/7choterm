@@ -110,7 +110,7 @@ int main() {
     Touch_Adjust();
     LCD_Clear(WHITE);
     ADC_start();
-    GPIOD->CRL = (GPIO_CRL_MODE2_0 | GPIO_CRL_MODE3_0 | GPIO_CRL_MODE4_0 | GPIO_CRL_MODE7_0);
+
 
     while (1) {
         LCD_ShowString(1, 1, "Wed_team07", BLACK, WHITE);
