@@ -1,3 +1,4 @@
+/* vi: set sw=4 ts=4 expandtab: */
 #include <misc.h>
 #include <stm32f10x.h>
 #include <stm32f10x_exti.h>
@@ -9,14 +10,17 @@
 #include <Touch.h>
 #include <stdio.h>
 #include <stdlib.h>
-uint16_t pos_x, pos_y;
-uint16_t pix_x, pix_y;
+
+
+
+uint16_t pos_x,pos_y;
+uint16_t pix_x,pix_y;
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
 uint16_t jodo;
 
 int button_pos[4][2];
 int button[] = { 0, 0, 0, 0 };
 
-// flash load C:\Users\USER\Desktop\week10\Debug\week10.axf
 
 void delay(int i) {
     int j;
@@ -131,6 +135,19 @@ void set_ENABLE(void) {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);     // RCC GPIO E
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);     // RCC GPIO C
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);     // RCC GPIO D
+=======
+void delay(int i){
+    int j;
+    for(j=0; j<=i * 100000; j++);
+}
+
+
+void set_ENABLE(void) {
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);	 // interrupt
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE,ENABLE);     // RCC GPIO E
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,ENABLE);     // RCC GPIO C
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD,ENABLE);     // RCC GPIO D
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);	 // ADC1
 }
 
@@ -151,8 +168,12 @@ void set_ADC(void) {
     ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
     ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
     ADC_InitStructure.ADC_NbrOfChannel = 1;
+<<<<<<< HEAD
     ADC_RegularChannelConfig(ADC1, ADC_Channel_11, 1,
             ADC_SampleTime_239Cycles5);
+=======
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_11, 1, ADC_SampleTime_239Cycles5);
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
     ADC_Init(ADC1, &ADC_InitStructure);
 }
 
@@ -169,11 +190,17 @@ void set_NVIC(void) {
 
 void ADC_start(void) {
     ADC_ResetCalibration(ADC1);
+<<<<<<< HEAD
     while (ADC_GetResetCalibrationStatus(ADC1))
         ;
     ADC_StartCalibration(ADC1);
     while (ADC_GetCalibrationStatus(ADC1))
         ;
+=======
+    while(ADC_GetResetCalibrationStatus(ADC1));
+    ADC_StartCalibration(ADC1);
+    while(ADC_GetCalibrationStatus(ADC1));
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
     ADC_SoftwareStartConvCmd(ADC1, ENABLE);
 }
 
@@ -181,12 +208,21 @@ void ADC1_2_IRQHandler(void) {
     uint16_t input;
     u8 str[10];
     double result;
+<<<<<<< HEAD
 //
 ////	while(ADC_GetFlagStatus(ADC1, 0x2)==RESET);
     input = ADC_GetConversionValue(ADC1);
     result = (double) input;
     jodo = result;
     ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+=======
+    //
+    ////	while(ADC_GetFlagStatus(ADC1, 0x2)==RESET);
+    input = ADC_GetConversionValue(ADC1);
+    result = (double)input;
+    jodo = result;
+    ADC_ClearITPendingBit(ADC1,ADC_IT_EOC);
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
     //	LCD_DrawRectangle(pix_x, pix_y, pix_x+10, pix_y+10);
 }
 
@@ -194,9 +230,15 @@ int main() {
     int rSize = 15;
     int i;
     unsigned int i2BS[] = { GPIO_BSRR_BS2, GPIO_BSRR_BS3, GPIO_BSRR_BS4,
+<<<<<<< HEAD
     GPIO_BSRR_BS7 };
     unsigned int off[] = { GPIO_BRR_BR2, GPIO_BRR_BR3, GPIO_BRR_BR4,
     GPIO_BRR_BR7 };
+=======
+        GPIO_BSRR_BS7 };
+    unsigned int off[] = { GPIO_BRR_BR2, GPIO_BRR_BR3, GPIO_BRR_BR4,
+        GPIO_BRR_BR7 };
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
     char str[10];
     int prevCircleX = -1, prevCircleY = -1;
 
@@ -210,13 +252,21 @@ int main() {
     Touch_Adjust();
     LCD_Clear(WHITE);
     ADC_start();
+<<<<<<< HEAD
     GPIOD->CRL = (GPIO_CRL_MODE2_0 | GPIO_CRL_MODE3_0 | GPIO_CRL_MODE4_0
             | GPIO_CRL_MODE7_0);
+=======
+    GPIOD->CRL = (GPIO_CRL_MODE2_0 | GPIO_CRL_MODE3_0 | GPIO_CRL_MODE4_0 | GPIO_CRL_MODE7_0);
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
 
     while (1) {
         LCD_ShowString(1, 1, "Wed_team07", BLACK, WHITE);
         LCD_ShowNum(200, 1, jodo, 4, BLACK, WHITE);
+<<<<<<< HEAD
 //		if(!T_INT)
+=======
+        //		if(!T_INT)
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
 
         Touch_GetXY(&pos_x, &pos_y, 0);
         ///
@@ -239,7 +289,11 @@ int main() {
                 button[i] = (button[i] + 1) % 2;
                 if (button[i])
                     GPIOD->BSRR = i2BS[i];
+<<<<<<< HEAD
 //					GPIO_SetBits()
+=======
+                //					GPIO_SetBits()
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
                 else {
                     GPIOD->BRR = i2BS[i];
                     //				GPIOD->BRR = off[i];
@@ -247,11 +301,20 @@ int main() {
             }
         }
 
+<<<<<<< HEAD
         if (T_INT == 0) {
             if (prevCircleX != -1 && prevCircleY != -1) {
                 LCD_Clear(WHITE);
 //				LCD_Fill(prevCircleX - 10, prevCircleY - 10, prevCircleY + 10,
 //						prevCircleY + 10, WHITE);
+=======
+        if(T_INT == 0)
+        {
+            if (prevCircleX != -1 && prevCircleY != -1) {
+                LCD_Clear(WHITE);
+                //				LCD_Fill(prevCircleX - 10, prevCircleY - 10, prevCircleY + 10,
+                //						prevCircleY + 10, WHITE);
+>>>>>>> 7426e074cc0297ca4db600bc7f4309d0a767db3b
             }
             Draw_Circle(pix_x, pix_y, 10);
             prevCircleX = pix_x;
