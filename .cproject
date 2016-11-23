@@ -26,6 +26,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}&quot;"/>
 								</option>
 								<option id="com.arm.tool.c.compiler.option.targetcpu.757094844" name="Target CPU (--cpu)" superClass="com.arm.tool.c.compiler.option.targetcpu" value="Cortex-M3" valueType="string"/>
+								<option id="com.arm.tool.c.compile.option.lang.1076229202" name="Source language mode" superClass="com.arm.tool.c.compile.option.lang" value="com.arm.tool.c.compile.option.lang.c99" valueType="enumerated"/>
 								<inputType id="com.arm.tool.c.compiler.input.840515667" superClass="com.arm.tool.c.compiler.input"/>
 								<inputType id="com.arm.tool.cpp.compiler.input.87372334" superClass="com.arm.tool.cpp.compiler.input"/>
 							</tool>
@@ -36,7 +37,7 @@
 							<tool id="com.arm.tool.c.linker.1028311244" name="ARM Linker 5" superClass="com.arm.tool.c.linker">
 								<option id="com.arm.tool.c.linker.option.entry.150844366" name="Image entry point (--entry)" superClass="com.arm.tool.c.linker.option.entry" value="main" valueType="string"/>
 								<option id="com.arm.tool.c.linker.option.cpu.387219702" name="Target CPU (--cpu)" superClass="com.arm.tool.c.linker.option.cpu" value="Cortex-M3" valueType="string"/>
-								<option id="com.arm.tool.c.linker.option.scatter.1074249315" name="Scatter file (--scatter)" superClass="com.arm.tool.c.linker.option.scatter" value="C:\Users\USER\Desktop\week10\stm32-test.sct" valueType="string"/>
+								<option id="com.arm.tool.c.linker.option.scatter.1074249315" name="Scatter file (--scatter)" superClass="com.arm.tool.c.linker.option.scatter" value="C:\Users\USER\7choterm\stm32-test.sct" valueType="string"/>
 							</tool>
 							<tool id="com.arm.tool.librarian.1243512926" name="ARM Librarian 5" superClass="com.arm.tool.librarian"/>
 						</toolChain>

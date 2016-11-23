@@ -20,19 +20,19 @@ RM := clean
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: week10.axf
+all: 7choterm.axf
 
 # Tool invocations
-week10.axf: $(OBJS) C:\Users\USER\Desktop\week10\stm32-test.sct $(USER_OBJS) $(LIBS)
+7choterm.axf: $(OBJS) C:\Users\USER\7choterm\stm32-test.sct $(USER_OBJS) $(LIBS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker 5'
-	armlink --entry=main --cpu=Cortex-M3 --scatter="C:\Users\USER\Desktop\week10\stm32-test.sct" --info=sizes -o "week10.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	armlink --entry=main --cpu=Cortex-M3 --scatter="C:\Users\USER\7choterm\stm32-test.sct" --info=sizes -o "7choterm.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS) $(EXECUTABLES) week10.axf 
+	-$(RM) $(OBJS) $(EXECUTABLES) 7choterm.axf 
 	-@echo ' '
 
 .PHONY: all clean dependents

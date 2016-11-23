@@ -14,7 +14,7 @@ OBJS += \
 Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/%.o: ../Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM C Compiler 5'
-	armcc -I"C:\Users\USER\Desktop\week10\Libraries\CMSIS\CM3\CoreSupport" -I"C:\Users\USER\Desktop\week10\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x" -I"C:\Users\USER\Desktop\week10\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm" -I"C:\Users\USER\Desktop\week10\Libraries\STM32F10x_StdPeriph_Driver\inc" -I"C:\Users\USER\Desktop\week10\Libraries\STM32F10x_StdPeriph_Driver\src" -I"C:\Users\USER\Desktop\week10" -O0 --cpu=Cortex-M3 -g -c -o "$@" "$<"
+	armcc -I"C:\Users\USER\7choterm\Libraries\CMSIS\CM3\CoreSupport" -I"C:\Users\USER\7choterm\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x" -I"C:\Users\USER\7choterm\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm" -I"C:\Users\USER\7choterm\Libraries\STM32F10x_StdPeriph_Driver\inc" -I"C:\Users\USER\7choterm\Libraries\STM32F10x_StdPeriph_Driver\src" -I"C:\Users\USER\7choterm" --c99 -O0 --cpu=Cortex-M3 -g -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
