@@ -1,0 +1,6 @@
+db create PSU
+debug configuration - browse(select)
+properties C++ setting - image layout sct file path
+
+execution : flash load -> system reset button 
+
